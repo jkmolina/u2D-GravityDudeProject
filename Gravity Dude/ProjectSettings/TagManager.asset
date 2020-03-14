@@ -10,6 +10,7 @@ TagManager:
   - Block
   - WinScreen
   - Border
+  - Speed
   layers:
   - Default
   - TransparentFX

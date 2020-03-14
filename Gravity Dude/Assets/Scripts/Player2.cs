@@ -81,6 +81,12 @@ public class Player2 : MonoBehaviour
             touchesEnemy = true;
             isGrounded = true;
         }
+        if (collision.gameObject.CompareTag("Speed"))
+        {
+            touchesEnemy = true;
+            isGrounded = true;
+            xspeed *= 2;
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -92,6 +98,12 @@ public class Player2 : MonoBehaviour
         {
             touchesEnemy = false;
             //isGrounded = false;
+        }
+        if (collision.gameObject.CompareTag("Speed"))
+        {
+            touchesEnemy = true;
+            isGrounded = true;
+            xspeed /= 2;
         }
     }
 }

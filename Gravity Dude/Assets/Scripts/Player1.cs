@@ -78,9 +78,14 @@ public class Player1 : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player2"))
         {
-            Debug.Log("fox on mario, can jump.");
             touchesEnemy = true;
             isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("Speed"))
+        {
+            touchesEnemy = true;
+            isGrounded = true;
+            xspeed *= 2;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -88,14 +93,19 @@ public class Player1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Platform"))
         {
             isGrounded = false;
-            Debug.Log("fox exited platform, can NOT jump");
         }
         if (collision.gameObject.CompareTag("Player2"))
         {
-            Debug.Log("fox not touching mario, CAN NOT JUMP");
             touchesEnemy = false;
             //isGrounded = false;
         }
+        if (collision.gameObject.CompareTag("Speed"))
+        {
+            touchesEnemy = true;
+            isGrounded = true;
+            xspeed /= 2;
+        }
+
     }
 
 }
